@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "./api"; // Import our new API utility
 import { Bar, Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -73,7 +73,7 @@ function App() {
     setError(null); // Clear previous errors
     try {
       console.log(`Fetching cost data for ${yyyyMm}`);
-      const res = await axios.get(`/api/costs?month=${yyyyMm}`);
+      const res = await api.get(`/api/costs?month=${yyyyMm}`);
       console.log("Received data:", res.data);
       setData(res.data);
       
@@ -115,7 +115,7 @@ function App() {
     setLoading(true);
     try {
       console.log("Fetching trend data");
-      const res = await axios.get(`/api/costs/trend?months=6`);
+      const res = await api.get(`/api/costs/trend?months=6`);
       console.log("Received trend data:", res.data);
       setTrendData(res.data);
     } catch (err) {
