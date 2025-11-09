@@ -54,3 +54,4 @@ GET https://your-vercel-url/api/costs/trend?months=6
 - Vercel's serverless functions have execution time limits, which should be sufficient for AWS Cost Explorer API calls
 - Make sure your AWS credentials have the necessary permissions for Cost Explorer API (`ce:GetCostAndUsage`)
 - The frontend will need to be configured to point to your new backend URL on Vercel
+- The serverless function properly exports a default handler as required by Vercel

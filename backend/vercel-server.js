@@ -178,5 +178,5 @@ app.get("/api/costs/trend", async (req, res) => {
   }
 });
 
-// Export the handler for Vercel
-export const handler = serverless(app);
+// Export the app as default for Vercel
+export default serverless(app);
