@@ -73,7 +73,8 @@ function App() {
     setError(null); // Clear previous errors
     try {
       console.log(`Fetching cost data for ${yyyyMm}`);
-      const res = await axios.get(`/api/costs?month=${yyyyMm}`);
+      const apiUrl = process.env.REACT_APP_API_URL || '';
+      const res = await axios.get(`${apiUrl}/api/costs?month=${yyyyMm}`);
       console.log("Received data:", res.data);
       setData(res.data);
       
@@ -115,7 +116,8 @@ function App() {
     setLoading(true);
     try {
       console.log("Fetching trend data");
-      const res = await axios.get(`/api/costs/trend?months=6`);
+      const apiUrl = process.env.REACT_APP_API_URL || '';
+      const res = await axios.get(`${apiUrl}/api/costs/trend?months=6`);
       console.log("Received trend data:", res.data);
       setTrendData(res.data);
     } catch (err) {
