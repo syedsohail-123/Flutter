@@ -14,7 +14,7 @@ const getBaseURL = () => {
 
 const api = axios.create({
   baseURL: getBaseURL(),
-  timeout: 10000,
+  timeout: 30000, // Increase timeout for AWS API calls
 });
 
 // Add a request interceptor to log requests
